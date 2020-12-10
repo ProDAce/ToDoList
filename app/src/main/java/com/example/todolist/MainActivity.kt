@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.drawer_layout.*
 import kotlinx.android.synthetic.main.drawer_layout.view.*
 
 class MainActivity : AppCompatActivity() {
+    
 
     //lateinit var toggle: ActionBarDrawerToggle
     lateinit var db: DBHandler
