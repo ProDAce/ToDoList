@@ -5,13 +5,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ArchiveActivity">
+    tools:context=".ArchiveActivity"
+    android:background="@color/colorBackground">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:layout_centerInParent="true"
-        android:text="Archive"/>
+    <RelativeLayout
+        android:id="@+id/archiveToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_marginTop="1dp"
+        android:layout_margin="1dp"
+        android:background="@drawable/shape_rectangle_hollow"
+        android:layout_alignParentTop="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_rectangle_solid"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_margin="2dp"/>
+
+        <!--<ImageView
+            android:id="@+id/settingsNavToggle"
+            android:layout_width="?actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_menu_24"
+            app:tint="@color/colorIcon" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/stringArchive"
+            android:textSize="26sp"
+            android:textColor="@color/colorTextDark"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"/>
+        <!--android:layout_toEndOf="@id/settingsNavToggle"-->
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPrimaryArchive"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_below="@+id/archiveToolbar" />
+
+
 
 </RelativeLayout>

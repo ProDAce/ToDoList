@@ -6,5 +6,6 @@ class PrimaryAttributes{
     var group: Int = 0
     var items: Int = 0
     var itemsChecked: Int = 0
+    var type: Int = 1
     var itemsList: MutableList<ItemAttributes> = ArrayList()
 }

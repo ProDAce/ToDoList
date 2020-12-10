@@ -16,6 +16,7 @@
     <string name="stringCheckList">Check List</string>
     <string name="stringUncheckList">Uncheck All</string>
     <string name="stringArchive">Archive</string>
+    <string name="stringUnarchive">Unarchive</string>
     <string name="stringRename">Rename</string>
 
     <string name="stringDayNight">Change to Day Mode</string>

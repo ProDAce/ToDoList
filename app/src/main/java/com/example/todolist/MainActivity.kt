@@ -81,7 +81,6 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-
         //Primary list add button
         mainAdd.setOnClickListener {
             val intent = Intent(this, ListActivity::class.java)
@@ -89,8 +88,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(INTENT_CREATED, true)
             startActivity(intent)
         }
-
-
 
         mainCreatedAsc.setOnClickListener {
             sharedPrefEdit.putInt("SortBy", 1)
@@ -173,7 +170,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshList(n: Int){
-        rvPrimary.adapter = MainAdapter(this, db.getPrimaryList(n))
+        rvPrimary.adapter = MainAdapter(this, db.getPrimaryList(n, 1))
     }
 
     override fun onResume() {
@@ -212,6 +209,7 @@ class MainActivity : AppCompatActivity() {
             val cardTitle = v.findViewById<TextView>(R.id.cardPrimaryTitle)
             val cardMenu: ImageView = v.findViewById(R.id.cardPrimaryMenu)
             val cardLayout = v.findViewById<LinearLayout>(R.id.cardPrimaryLayout)
+            //val cardType = v.findViewById<TextView>(R.id.cardPrimaryType)
 
         }
 
@@ -236,6 +234,8 @@ class MainActivity : AppCompatActivity() {
                 8 -> holder.cardLayout.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(activity, R.color.colorGroup8))
             }
 
+            //holder.cardType.text = list[position].type.toString()
+
             holder.cardTitle.text = list[position].title
             holder.cardTitle.setOnClickListener {
                 val intent = Intent(activity, ListActivity::class.java)
@@ -254,6 +254,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         R.id.menuDelete ->  {
                             activity.db.deletePrimaryList(list[position].id)
+                            activity.refreshList(activity.sortByVar)
                         }
                         R.id.menuArchive ->  {
 

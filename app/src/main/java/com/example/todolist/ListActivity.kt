@@ -29,6 +29,7 @@ class ListActivity : AppCompatActivity() {
     private var intentID: Long = -1
     private var titleVar: String = ""
     private var groupVar: Int = 0
+    private var typeVar: Int = 1
     private var itemsVar: Int = 0
     private var itemsCheckedVar: Int = 0
 
@@ -57,6 +58,7 @@ class ListActivity : AppCompatActivity() {
             val list: MutableList<PrimaryAttributes> = db.getPrimaryBasics(intentID)
             titleVar = list[0].title
             groupVar = list[0].group
+            typeVar = list[0].type
             itemsVar = list[0].items
             itemsCheckedVar = list[0].itemsChecked
 
@@ -65,6 +67,15 @@ class ListActivity : AppCompatActivity() {
 
             listToolbarTitleET.setText(titleVar)
             listToolbarTitleTV.text = titleVar
+        }
+
+        if (typeVar == 1){
+            listArchive.visibility = View.VISIBLE
+            listUnarchive.visibility = View.GONE
+        }
+        else{
+            listArchive.visibility = View.GONE
+            listUnarchive.visibility = View.VISIBLE
         }
 
         listToolbarEdit.setOnClickListener { editModeFunc() }
@@ -84,6 +95,9 @@ class ListActivity : AppCompatActivity() {
 
         listUncheckAll.setOnClickListener {
             dialogFunc("Uncheck all items in the list", 4)
+        }
+        listUnarchive.setOnClickListener {
+            dialogFunc("Unarchive List", 5)
         }
 
         listMore.setOnClickListener {
@@ -158,7 +172,12 @@ class ListActivity : AppCompatActivity() {
                 this.finish()
             }
             else if(n==2){
+                typeVar = 2
+                addUpdateFunc()
+                listMoreLayout.visibility = View.GONE
                 Toast.makeText(this, "List Archived", Toast.LENGTH_SHORT).show()
+                listArchive.visibility = View.GONE
+                listUnarchive.visibility = View.VISIBLE
             }
             else if(n==3){
                 db.markItemList(intentID, true)
@@ -166,11 +185,19 @@ class ListActivity : AppCompatActivity() {
                 refreshList()
                 Toast.makeText(this, "All Checked", Toast.LENGTH_SHORT).show()
             }
-            else{
+            else if (n==4){
                 db.markItemList(intentID, false)
                 listMoreLayout.visibility = View.GONE
                 refreshList()
                 Toast.makeText(this, "All unchecked", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                typeVar = 1
+                addUpdateFunc()
+                listMoreLayout.visibility = View.GONE
+                Toast.makeText(this, "List Unarchived", Toast.LENGTH_SHORT).show()
+                listArchive.visibility = View.VISIBLE
+                listUnarchive.visibility = View.GONE
             }
         }
         dialog.setNegativeButton("Cancel") { _: DialogInterface, _: Int -> }
@@ -202,6 +229,7 @@ class ListActivity : AppCompatActivity() {
 
         val obj = PrimaryAttributes()
         obj.group = groupVar
+        obj.type = typeVar
         obj.items = itemsVar
         obj.itemsChecked = itemsCheckedVar
 
@@ -222,6 +250,7 @@ class ListActivity : AppCompatActivity() {
 
                 obj.title = titleVar
                 obj.group = groupVar
+                obj.type = typeVar
                 obj.items = itemsVar
                 obj.itemsChecked = itemsCheckedVar
 
@@ -251,6 +280,7 @@ class ListActivity : AppCompatActivity() {
             obj.id = intentID
             obj.title = titleVar
             obj.group = groupVar
+            obj.type = typeVar
             obj.items = itemsVar
             obj.itemsChecked = itemsCheckedVar
 

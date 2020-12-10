@@ -15,6 +15,7 @@ class DBHandler(private val context: Context) :
                 "$COL_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$COL_TITLE VARCHAR, " +
                 "$COL_GROUP INTEGER, " +
+                "$COL_TYPE INTEGER, "+
                 "$COL_ITEMS INTEGER, " +
                 "$COL_ITEMS_CHECKED INTEGER, " +
                 "$COL_CREATED_AT datetime DEFAULT CURRENT_TIMESTAMP, " +
@@ -42,22 +43,23 @@ class DBHandler(private val context: Context) :
         val cv = ContentValues()
         cv.put(COL_TITLE, obj.title)
         cv.put(COL_GROUP, obj.group)
+        cv.put(COL_TYPE, obj.type)
         cv.put(COL_ITEMS, obj.items)
         cv.put(COL_ITEMS_CHECKED, obj.itemsChecked)
 
         return db.insert(TABLE_PRIMARY, null, cv)
     }
 
-    fun getPrimaryList(n: Int): MutableList<PrimaryAttributes>{
+    fun getPrimaryList(n: Int, t: Int): MutableList<PrimaryAttributes>{
         val result: MutableList<PrimaryAttributes> = ArrayList()
         val db = readableDatabase
-        var queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY", null)
+        var queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY WHERE $COL_TYPE = $t", null)
 
         when(n){
-            1-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY", null)
-            2-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY ORDER BY $COL_TITLE ASC", null)
-            3-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY ORDER BY $COL_TITLE DESC", null)
-            4-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY ORDER BY $COL_GROUP ASC", null)
+            1-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY WHERE $COL_TYPE = $t", null)
+            2-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY WHERE $COL_TYPE=$t ORDER BY $COL_TITLE ASC", null)
+            3-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY WHERE $COL_TYPE = $t ORDER BY $COL_TITLE DESC", null)
+            4-> queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY WHERE $COL_TYPE = $t ORDER BY $COL_GROUP ASC", null)
         }
 
 
@@ -84,6 +86,7 @@ class DBHandler(private val context: Context) :
         cv.put(COL_TITLE, obj.title)
         cv.put(COL_GROUP, obj.group)
         cv.put(COL_ITEMS, obj.items)
+        cv.put(COL_TYPE, obj.type)
         cv.put(COL_ITEMS_CHECKED, obj.itemsChecked)
 
         db.update(TABLE_PRIMARY, cv, "$COL_ID=?", arrayOf(obj.id.toString()))
@@ -107,6 +110,7 @@ class DBHandler(private val context: Context) :
         obj.id  = queryResult.getLong(queryResult.getColumnIndex(COL_ID))
         obj.title = queryResult.getString(queryResult.getColumnIndex(COL_TITLE))
         obj.group = queryResult.getInt(queryResult.getColumnIndex(COL_GROUP))
+        obj.type = queryResult.getInt(queryResult.getColumnIndex(COL_TYPE))
         obj.items = queryResult.getInt(queryResult.getColumnIndex(COL_ITEMS))
         obj.itemsChecked = queryResult.getInt(queryResult.getColumnIndex(COL_ITEMS_CHECKED))
         result.add(obj)

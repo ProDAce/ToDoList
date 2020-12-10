@@ -24,13 +24,13 @@
             android:backgroundTint="@color/colorPrimary"
             android:layout_margin="2dp"/>
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/settingsNavToggle"
             android:layout_width="?actionBarSize"
             android:layout_height="match_parent"
             android:padding="10dp"
             android:src="@drawable/ic_baseline_menu_24"
-            app:tint="@color/colorIcon" />
+            app:tint="@color/colorIcon" />-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,8 +39,8 @@
             android:textSize="26sp"
             android:textColor="@color/colorTextDark"
             android:gravity="center_vertical"
-            android:paddingHorizontal="16dp"
-            android:layout_toEndOf="@id/settingsNavToggle"/>
+            android:paddingHorizontal="16dp"/>
+            <!--android:layout_toEndOf="@id/settingsNavToggle"-->
 
     </RelativeLayout>
 

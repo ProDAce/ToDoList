@@ -14,6 +14,7 @@ const val COL_TITLE = "Title"
 const val COL_GROUP = "InGroup"
 const val COL_ITEMS="Items"
 const val COL_ITEMS_CHECKED="ItemsChecked"
+const val COL_TYPE="ListType"
 
 
 //Item Table
