@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuEditTitle"
+        android:title="@string/stringEditTitle"/>
+
+    <item android:id="@+id/menuDelete"
+        android:title="@string/stringDelete"/>
+
+    <item android:id="@+id/menuArchive"
+        android:title="@string/stringArchive"/>
+
+    <item android:id="@+id/menuCheckList"
+        android:title="@string/stringCheckList"/>
+
+    <item android:id="@+id/menuUncheckList"
+        android:title="@string/stringUncheckList"/>
+
+
+</menu>

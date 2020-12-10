@@ -143,6 +143,7 @@ class ListActivity : AppCompatActivity() {
 
         }
         //listColourGroupLayout.visibility = View.GONE
+        listMoreLayout.visibility = View.GONE
         addUpdateFunc()
     }
 
@@ -160,9 +161,15 @@ class ListActivity : AppCompatActivity() {
                 Toast.makeText(this, "List Archived", Toast.LENGTH_SHORT).show()
             }
             else if(n==3){
+                db.markItemList(intentID, true)
+                listMoreLayout.visibility = View.GONE
+                refreshList()
                 Toast.makeText(this, "All Checked", Toast.LENGTH_SHORT).show()
             }
             else{
+                db.markItemList(intentID, false)
+                listMoreLayout.visibility = View.GONE
+                refreshList()
                 Toast.makeText(this, "All unchecked", Toast.LENGTH_SHORT).show()
             }
         }

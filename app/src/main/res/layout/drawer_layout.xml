@@ -22,7 +22,8 @@
         android:gravity="center_vertical"
         android:padding="5dp"
         android:layout_marginVertical="8dp"
-        android:onClick="navHome">
+        android:onClick="navHome"
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="wrap_content"

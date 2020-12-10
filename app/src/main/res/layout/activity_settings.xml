@@ -5,21 +5,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity"
+    android:background="@color/colorBackground">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Settings"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stringDayNight"
-        android:layout_centerInParent="true"
-        android:textSize="20sp"
-        android:textColor="@color/colorTextDark"/>
+    <RelativeLayout
+        android:id="@+id/settingsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_marginTop="1dp"
+        android:layout_margin="1dp"
+        android:background="@drawable/shape_rectangle_hollow"
+        android:layout_alignParentTop="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_rectangle_solid"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_margin="2dp"/>
+
+        <ImageView
+            android:id="@+id/settingsNavToggle"
+            android:layout_width="?actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_menu_24"
+            app:tint="@color/colorIcon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/stringSettings"
+            android:textSize="26sp"
+            android:textColor="@color/colorTextDark"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:layout_toEndOf="@id/settingsNavToggle"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/settingsToolbar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingHorizontal="10dp"
+            android:layout_marginVertical="2dp">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/settingsDayNight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Night Mode"
+                android:textColor="@color/colorTextDark"
+                android:textSize="20sp"
+                android:padding="4dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorSeparation"
+                android:layout_alignParentBottom="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
 
 </RelativeLayout>

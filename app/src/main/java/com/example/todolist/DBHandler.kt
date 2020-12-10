@@ -78,28 +78,6 @@ class DBHandler(private val context: Context) :
         return result
     }
 
-    /*fun getPrimaryList(): MutableList<PrimaryAttributes>{
-        val result: MutableList<PrimaryAttributes> = ArrayList()
-        val db = readableDatabase
-
-        val queryResult = db.rawQuery("SELECT * FROM $TABLE_PRIMARY", null)
-
-        if (queryResult.moveToFirst()){
-            do {
-                val obj = PrimaryAttributes()
-                obj.id  = queryResult.getLong(queryResult.getColumnIndex(COL_ID))
-                obj.title = queryResult.getString(queryResult.getColumnIndex(COL_TITLE))
-                obj.group = queryResult.getInt(queryResult.getColumnIndex(COL_GROUP))
-                obj.items = queryResult.getInt(queryResult.getColumnIndex(COL_ITEMS))
-                obj.itemsChecked = queryResult.getInt(queryResult.getColumnIndex(COL_ITEMS_CHECKED))
-                result.add(obj)
-
-            }while (queryResult.moveToNext())
-        }
-        queryResult.close()
-        return result
-    }*/
-
     fun updatePrimaryList(obj: PrimaryAttributes){
         val db  = writableDatabase
         val cv = ContentValues()
@@ -135,6 +113,22 @@ class DBHandler(private val context: Context) :
 
         queryResult.close()
         return result
+    }
+
+    fun markItemList(n: Long, flag: Boolean){
+        val db = writableDatabase
+        val qResult = db.rawQuery("SELECT * FROM $TABLE_ITEM WHERE $COL_PRIMARY_ID = $n", null)
+
+        if (qResult.moveToFirst()){
+            do {
+                val obj = ItemAttributes()
+                obj.id  =qResult.getLong(qResult.getColumnIndex(COL_ID))
+                obj.name = qResult.getString(qResult.getColumnIndex(COL_ITEM_NAME))
+                obj.isCompleted = flag
+                updateItem(obj)
+            }while (qResult.moveToNext())
+        }
+        qResult.close()
     }
 
     /*Items*/

@@ -12,6 +12,7 @@
     <string name="stringTrash">Trash</string>
     <string name="stringSettings">Settings</string>
     <string name="stringHelp">Help</string>
+    <string name="stringEditTitle">Edit Title</string>
     <string name="stringDelete">Delete</string>
     <string name="stringCheckList">Check List</string>
     <string name="stringUncheckList">Uncheck All</string>

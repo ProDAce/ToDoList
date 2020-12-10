@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         else
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        mainDayNight.setOnClickListener {
+        /*mainDayNight.setOnClickListener {
             if (isNightMode){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 sharedPrefEdit.putBoolean("NightMode", false)
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 sharedPrefEdit.apply()
             }
 
-        }
+        }*/
 
         sortByFun(sortBy)
 
@@ -73,9 +73,9 @@ class MainActivity : AppCompatActivity() {
         rvPrimary.layoutManager = LinearLayoutManager(this)
         refreshList(sortBy)
 
-        /*mainNavToggle.setOnClickListener {
+        mainNavToggle.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
-        }*/
+        }
 
 
         //Primary list add button
@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(INTENT_CREATED, true)
             startActivity(intent)
         }
+
 
 
         mainCreatedAsc.setOnClickListener {
@@ -205,7 +206,7 @@ class MainActivity : AppCompatActivity() {
         class ViewHolder(v: View): RecyclerView.ViewHolder(v){
 
             val cardTitle = v.findViewById<TextView>(R.id.cardPrimaryTitle)
-            val cardMenu = v.findViewById<ImageView>(R.id.cardPrimaryMenu)
+            val cardMenu: ImageView = v.findViewById(R.id.cardPrimaryMenu)
             val cardLayout = v.findViewById<LinearLayout>(R.id.cardPrimaryLayout)
 
         }
@@ -237,6 +238,33 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra(INTENT_ID, list[position].id)
                 intent.putExtra(INTENT_CREATED, false)
                 activity.startActivity(intent)
+            }
+
+            holder.cardMenu.setOnClickListener {
+                val popup = PopupMenu(activity, holder.cardMenu)
+                popup.inflate(R.menu.menu_primary_card)
+                popup.setOnMenuItemClickListener {
+                    when(it.itemId){
+                        R.id.menuEditTitle -> {
+
+                        }
+                        R.id.menuDelete ->  {
+                            activity.db.deletePrimaryList(list[position].id)
+                        }
+                        R.id.menuArchive ->  {
+
+                        }
+                        R.id.menuCheckList ->  {
+                            activity.db.markItemList(list[position].id, true)
+                        }
+                        R.id.menuUncheckList -> {
+                            activity.db.markItemList(list[position].id, false)
+                        }
+
+                    }
+                    true
+                }
+                popup.show()
             }
         }
 
