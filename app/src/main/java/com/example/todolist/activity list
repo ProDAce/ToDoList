@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListActivity">
+
+    <RelativeLayout
+        android:id="@+id/listToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorGroupDeep0"
+        android:layout_marginBottom="4dp">
+        <TextView
+            android:id="@+id/listToolbarTitleTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="24sp"
+            android:textColor="@color/colorTextDark"
+            android:text="Testing"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:paddingHorizontal="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:background="@android:color/transparent"
+            android:layout_toStartOf="@+id/listToolbarEdit"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/listToolbarEdit"
+            android:layout_width="?actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:layout_alignParentEnd="true"
+            android:visibility="visible"/>
+
+        <EditText
+            android:id="@+id/listToolbarTitleET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="24sp"
+            android:textColor="@color/colorTextDark"
+            android:lines="1"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:paddingHorizontal="10dp"
+            android:gravity="center_vertical"
+            android:background="@android:color/white"
+            android:layout_toStartOf="@+id/listToolbarDone"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/listToolbarDone"
+            android:layout_width="?actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_done_24"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+
+        <!--<LinearLayout
+            android:id="@+id/listToolbarLeftButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true">
+            <ImageView
+                android:id="@+id/mainAdd"
+                android:layout_width="?actionBarSize"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@drawable/ic_baseline_edit_24"
+                />
+        </LinearLayout>-->
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/listToolbar"
+        android:layout_above="@+id/listToolbarBot"
+        android:background="@color/colorGroup0"/>
+
+    <include
+        android:id="@+id/listColourGroupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_color_plate"
+        android:layout_above="@+id/listToolbarBot"
+        android:layout_margin="8dp"
+        android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:id="@+id/listToolbarBot"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGroupDeep0"
+        android:weightSum="5">
+
+        <ImageView
+            android:id="@+id/listCheckAll"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_all_check"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listUncheckAll"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_all_uncheck"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listArchive"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_archive"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listDelete"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_trash"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listColorGroup"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_color_plate2"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <!--<LinearLayout
+            android:id="@+id/listColorGroup"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:padding="4dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_rectangle_solid"
+                android:backgroundTint="@color/colorGroupDeep0"/>
+        </LinearLayout>-->
+
+
+
+        <!--<LinearLayout
+            android:layout_width="?actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="1dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/listColorGroup"
+                android:layout_width="0dp"
+                android:layout_height="?actionBarSize"
+                android:src="@drawable/shape_rectangle_solid"
+                android:background="@drawable/shape_rectangle_solid"
+                android:padding="5dp"
+                android:layout_weight="1"
+                app:tint="@color/colorGroupDeep7" />
+
+        </LinearLayout>-->
+
+    </LinearLayout>
+    <!--<Button
+        android:id="@+id/addItemBtn"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorGroupDeep0"
+        android:textSize="30sp"
+        android:textColor="@color/colorTextDark"
+        android:text="+ Add Item"
+        android:layout_alignParentBottom="true"/>-->
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#222222</color>
+    <color name="colorPrimaryDark">#160049</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="testYellow">#F6E27F</color>
+
+    <!--THEME-->
+    <color name="colorThemeMainBlue">#ffffff</color>
+
+    <!--Default Colours-->
+    <color name="colorLightBG">#FCFCFC</color>
+    <color name="colorTextLight">#FFFFFF</color>
+    <color name="colorTextDark">#BAB9AA</color>
+    <color name="colorIcon">#87939A</color>
+    <color name="colorIconInvert">#FFFFFF</color>
+    <color name="colorBackground">#313335</color>
+    <color name="colorBackgroundTint">#FCFCFC</color>
+    <color name="colorSeparation">#83B3B3B3</color>
+
+    <!--COLOUR GROUP ONE-->
+    <color name="colorGroup0">#424242</color>
+    <color name="colorGroup1">#513A3A</color>
+    <!--<color name="colorGroup1">#7C1E1E</color>-->
+    <color name="colorGroup2">#594A3F</color>
+    <color name="colorGroup3">#494532</color>
+    <color name="colorGroup4">#354333</color>
+    <color name="colorGroup5">#435757</color>
+    <color name="colorGroup6">#475867</color>
+    <color name="colorGroup7">#393745</color>
+    <color name="colorGroup8">#483949</color>
+
+    <color name="colorGroupDeep0">#2B2B2B</color>
+    <color name="colorGroupDeep1">#470101</color>
+    <color name="colorGroupDeep2">#4C2A00</color>
+    <color name="colorGroupDeep3">#4A4100</color>
+    <color name="colorGroupDeep4">#183201</color>
+    <color name="colorGroupDeep5">#004A4A</color>
+    <color name="colorGroupDeep6">#002B59</color>
+    <color name="colorGroupDeep7">#221A4E</color>
+    <color name="colorGroupDeep8">#410245</color>
+</resources>

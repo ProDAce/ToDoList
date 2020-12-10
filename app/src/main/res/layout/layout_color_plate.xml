@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/layoutColourGroup0"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep0"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup1"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep1"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup2"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep2"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup3"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep3"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup4"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep4"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup5"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep5"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup6"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep6"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup7"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep7"
+            android:onClick="colourGroupFunc"/>
+
+        <ImageView
+            android:id="@+id/layoutColourGroup8"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/shape_rectangle_solid"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:padding="1dp"
+            android:layout_marginHorizontal="8dp"
+            app:tint="@color/colorGroupDeep8"
+            android:onClick="colourGroupFunc"/>
+    </LinearLayout>
+
+</HorizontalScrollView>

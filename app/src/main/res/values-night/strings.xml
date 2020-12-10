@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">To Do List</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="search">Search</string>
+    <string name="title_activity_list">ListActivity</string>
+
+    <string name="stringList">Lists</string>
+    <string name="stringHome">Home</string>
+    <string name="stringTrash">Trash</string>
+    <string name="stringSettings">Settings</string>
+    <string name="stringHelp">Help</string>
+    <string name="stringDelete">Delete</string>
+    <string name="stringCheckList">Check List</string>
+    <string name="stringUncheckList">Uncheck All</string>
+    <string name="stringArchive">Archive</string>
+    <string name="stringRename">Rename</string>
+
+    <string name="stringDayNight">Change to Day Mode</string>
+</resources>

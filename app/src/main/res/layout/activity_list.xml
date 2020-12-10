@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListActivity">
+
+    <RelativeLayout
+        android:id="@+id/listToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorGroupDeep0"
+        android:paddingBottom="4dp">
+        <TextView
+            android:id="@+id/listToolbarTitleTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="24sp"
+            android:textColor="@color/colorTextDark"
+            android:text="Testing"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:paddingHorizontal="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:background="@android:color/transparent"
+            android:layout_toStartOf="@+id/listToolbarEdit"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/listToolbarEdit"
+            android:layout_width="?actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:layout_alignParentEnd="true"
+            android:visibility="visible"
+            app:tint="@color/colorIcon"/>
+
+        <EditText
+            android:id="@+id/listToolbarTitleET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="24sp"
+            android:textColor="@color/colorTextDark"
+            android:lines="1"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:paddingHorizontal="10dp"
+            android:gravity="center_vertical"
+            android:background="@color/colorBackground"
+            android:layout_toStartOf="@+id/listToolbarDone"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/listToolbarDone"
+            android:layout_width="?actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:src="@drawable/ic_baseline_done_24"
+            android:layout_alignParentEnd="true"
+            app:tint="@color/colorIcon"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/listToolbar"
+        android:layout_above="@+id/listToolbarBot"
+        android:background="@color/colorGroup0"/>
+
+
+
+    <RelativeLayout
+        android:id="@+id/listToolbarBot"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGroupDeep0">
+
+        <ImageView
+            android:id="@+id/listMore"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_more_vert"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:layout_alignParentEnd="true"
+            app:tint="@color/colorIcon"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/listMoreLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorGroup0"
+        android:layout_above="@+id/listToolbarBot"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/colorSeparation"/>
+
+        <RelativeLayout
+            android:id="@+id/listCheckAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/listCheckAllImg"
+                android:layout_width="?actionBarSize"
+                android:layout_height="?actionBarSize"
+                android:src="@drawable/ic_all_check"
+                android:padding="12dp"
+                android:layout_marginHorizontal="4dp"
+                app:tint="@color/colorIcon"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextDark"
+                android:text="@string/stringCheckList"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:background="@android:color/transparent"
+                android:layout_toEndOf="@id/listCheckAllImg"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/listUncheckAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/listUncheckAllImg"
+                android:layout_width="?actionBarSize"
+                android:layout_height="?actionBarSize"
+                android:src="@drawable/ic_all_uncheck"
+                android:padding="12dp"
+                android:layout_marginHorizontal="4dp"
+                app:tint="@color/colorIcon"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextDark"
+                android:text="@string/stringUncheckList"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:background="@android:color/transparent"
+                android:layout_toEndOf="@id/listUncheckAllImg"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/listArchive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/listArchiveImg"
+                android:layout_width="?actionBarSize"
+                android:layout_height="?actionBarSize"
+                android:src="@drawable/ic_archive"
+                android:padding="12dp"
+                android:layout_marginHorizontal="4dp"
+                app:tint="@color/colorIcon"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextDark"
+                android:text="@string/stringArchive"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:background="@android:color/transparent"
+                android:layout_toEndOf="@id/listArchiveImg"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/listDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/listDeleteImg"
+                android:layout_width="?actionBarSize"
+                android:layout_height="?actionBarSize"
+                android:src="@drawable/ic_trash"
+                android:padding="12dp"
+                android:layout_marginHorizontal="4dp"
+                app:tint="@color/colorIcon"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextDark"
+                android:text="@string/stringDelete"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:background="@android:color/transparent"
+                android:layout_toEndOf="@id/listDeleteImg"/>
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/listColourGroupLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/layout_color_plate"
+            android:background="@android:color/transparent"
+            android:layout_margin="8dp" />
+
+    </LinearLayout>
+
+
+    <!--<LinearLayout
+        android:id="@+id/listToolbarBot"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGroupDeep0"
+        android:weightSum="5">
+
+        <ImageView
+            android:id="@+id/listCheckAll"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_all_check"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listUncheckAll"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_all_uncheck"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listArchive"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_archive"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listDelete"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_trash"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/listColorGroup"
+            android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_color_plate2"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:background="@drawable/shape_rectangle_hollow"
+            android:layout_weight="1"/>
+    </LinearLayout>-->
+
+</RelativeLayout>

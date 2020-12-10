@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#160049</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="testYellow">#F6E27F</color>
+
+    <!--THEME-->
+    <color name="colorThemeMainBlue">#ffffff</color>
+
+    <!--Default Colours-->
+    <color name="colorLightBG">#FCFCFC</color>
+    <color name="colorTextLight">#FFFFFF</color>
+    <color name="colorTextDark">#2B2B2B</color>
+    <color name="colorIcon">#2D2F31</color>
+    <color name="colorIconInvert">#FFFFFF</color>
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorBackgroundTint">#313335</color>
+    <color name="colorSeparation">#83888888</color>
+
+    <!--COLOUR GROUP ONE-->
+    <color name="colorGroup0">#ECECEC</color>
+    <color name="colorGroup1">#FF9898</color>
+    <color name="colorGroup2">#FFBC8F</color>
+    <color name="colorGroup3">#FFF3B4</color>
+    <color name="colorGroup4">#B7FFA6</color>
+    <color name="colorGroup5">#A6FFFF</color>
+    <color name="colorGroup6">#A5D0FF</color>
+    <color name="colorGroup7">#C0B6FB</color>
+    <color name="colorGroup8">#F9C5FD</color>
+
+    <!--COLOUR GROUP ONE-->
+    <!--<color name="colorGroupDeep0">#4E4E4E</color>
+    <color name="colorGroupDeep1">#810000</color>
+    <color name="colorGroupDeep2">#A84F01</color>
+    <color name="colorGroupDeep3">#978301</color>
+    <color name="colorGroupDeep4">#177801</color>
+    <color name="colorGroupDeep5">#008878</color>
+    <color name="colorGroupDeep6">#003293</color>
+    <color name="colorGroupDeep7">#3E3093</color>
+    <color name="colorGroupDeep8">#8B3391</color>-->
+    <color name="colorGroupDeep0">#D1D1D1</color>
+    <color name="colorGroupDeep1">#FF3030</color>
+    <color name="colorGroupDeep2">#FF8331</color>
+    <color name="colorGroupDeep3">#FFE32D</color>
+    <color name="colorGroupDeep4">#81ED22</color>
+    <color name="colorGroupDeep5">#00FFFF</color>
+    <color name="colorGroupDeep6">#1F8BFF</color>
+    <color name="colorGroupDeep7">#7765E3</color>
+    <color name="colorGroupDeep8">#E571ED</color>
+</resources>
