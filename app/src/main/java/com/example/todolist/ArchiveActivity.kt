@@ -35,7 +35,12 @@ class ArchiveActivity : AppCompatActivity() {
 
 
     private fun refreshList(){
-        rvPrimaryArchive.adapter = ArchiveAdapter(this, db.getPrimaryList(1, 2))
+        val list: MutableList<PrimaryAttributes> = db.getPrimaryList(1, 2)
+        if (list.isEmpty())
+            archiveNoAvailable.visibility = View.VISIBLE
+        else
+            archiveNoAvailable.visibility = View.GONE
+        rvPrimaryArchive.adapter = ArchiveAdapter(this, list)
     }
 
     override fun onResume() {

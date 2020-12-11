@@ -168,7 +168,11 @@ class ListActivity : AppCompatActivity() {
         dialog.setPositiveButton("Yes"){ _: DialogInterface, _: Int ->
             if (n==1){
                 if (!isCreated)
-                    db.deletePrimaryList(intentID)
+                {
+                    typeVar = 3
+                    addUpdateFunc()
+                }
+                    //db.deletePrimaryList(intentID)
                 this.finish()
             }
             else if(n==2){
