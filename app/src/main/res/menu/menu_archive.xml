@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/menuEditTitle"
+    <item android:id="@+id/menuArcEditTitle"
         android:title="@string/stringEditTitle"/>
 
-    <item android:id="@+id/menuDelete"
+    <item android:id="@+id/menuArcDelete"
         android:title="@string/stringDelete"/>
 
-    <item android:id="@+id/menuArchive"
-        android:title="@string/stringArchive"/>
+    <item android:id="@+id/menuArcArchive"
+        android:title="@string/stringUnarchive"/>
 
-    <item android:id="@+id/menuCheckList"
+    <item android:id="@+id/menuArcCheckList"
         android:title="@string/stringCheckList"/>
 
-    <item android:id="@+id/menuUncheckList"
+    <item android:id="@+id/menuArcUncheckList"
         android:title="@string/stringUncheckList"/>
 
 </menu>

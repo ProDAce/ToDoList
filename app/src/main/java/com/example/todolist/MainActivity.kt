@@ -177,7 +177,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun dialogFuncTitle(obj: PrimaryAttributes) {
-        val dialog = AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this, R.style.MyDialogThemeTitle)
         val view = layoutInflater.inflate(R.layout.dialog_add, null)
         val dialogFieldText = view.findViewById<TextView>(R.id.dialogAddText)
         dialog.setView(view)
@@ -191,6 +191,8 @@ class MainActivity : AppCompatActivity() {
             else{
                 val sdf = SimpleDateFormat("dd/MM/yyyy  HH:mm:ss", Locale.getDefault())
                 obj.title = sdf.format(Date())
+                db.updatePrimaryList(obj)
+                refreshList(sortByVar)
             }
 
         }
@@ -207,7 +209,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun dialogFunc(s: String, n: Int, list: PrimaryAttributes){
-        val dialog = AlertDialog.Builder(this, R.style.MyDialogTheme)
+        val dialog = AlertDialog.Builder(this, R.style.MyDialogThemeTitle)
         dialog.setTitle(s)
         dialog.setPositiveButton("Yes"){ _: DialogInterface, _: Int ->
             val obj = PrimaryAttributes()

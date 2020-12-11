@@ -5,12 +5,14 @@ import android.content.DialogInterface
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.attributes.ItemAttributes
@@ -35,6 +37,11 @@ class ListActivity : AppCompatActivity() {
 
     private var isCreated: Boolean = false
     private var inEditMode: Boolean = false
+
+    var globalList: MutableList<ItemAttributes>? = null
+    var adapter: ListAdapter? = null
+
+    var touchHelper: ItemTouchHelper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,6 +120,28 @@ class ListActivity : AppCompatActivity() {
             else
                 listColourGroupLayout.visibility = View.GONE
         }*/
+
+        touchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP
+                or ItemTouchHelper.DOWN, 0){
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                val sourcePos: Int = viewHolder.adapterPosition
+                val targetPos: Int = target.adapterPosition
+                Collections.swap(globalList, sourcePos, targetPos)
+                adapter?.notifyItemMoved(sourcePos, targetPos)
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+        touchHelper?.attachToRecyclerView(rvItem)
 
     }
 
@@ -393,7 +422,9 @@ class ListActivity : AppCompatActivity() {
     }
 
     private fun refreshList() {
-        rvItem.adapter = ListAdapter(this, db.getItem(intentID))
+        globalList = db.getItem(intentID)
+        adapter = ListAdapter(this, globalList!!)
+        rvItem.adapter = adapter
     }
 
     override fun onResume() {
@@ -480,6 +511,13 @@ class ListActivity : AppCompatActivity() {
 
                     holder.cardTitle.setOnClickListener {
                         activity.updateItemFunc(list[position])
+                    }
+
+                    holder.cardSwap.setOnTouchListener { v, event ->
+                        if (event.actionMasked == MotionEvent.ACTION_DOWN){
+                            activity.touchHelper?.startDrag(holder)
+                        }
+                        false
                     }
 
                 }
