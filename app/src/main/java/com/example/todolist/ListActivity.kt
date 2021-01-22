@@ -216,13 +216,21 @@ class ListActivity : AppCompatActivity() {
                 db.markItemList(intentID, true)
                 listMoreLayout.visibility = View.GONE
                 refreshList()
+                itemsCheckedVar = itemsVar
+                itemsChecked()
+                addUpdateFunc()
                 Toast.makeText(this, "All Checked", Toast.LENGTH_SHORT).show()
+
             }
             else if (n==4){
                 db.markItemList(intentID, false)
                 listMoreLayout.visibility = View.GONE
                 refreshList()
+                itemsCheckedVar = 0
+                itemsChecked()
+                addUpdateFunc()
                 Toast.makeText(this, "All unchecked", Toast.LENGTH_SHORT).show()
+
             }
             else{
                 typeVar = 1
@@ -381,7 +389,7 @@ class ListActivity : AppCompatActivity() {
     }
 
     private fun updateItemFunc(obj: ItemAttributes) {
-        val dialog = AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this, R.style.MyDialogTheme)
         val view = layoutInflater.inflate(R.layout.dialog_add, null)
         val dialogFieldText = view.findViewById<TextView>(R.id.dialogAddText)
         dialog.setView(view)
@@ -421,10 +429,16 @@ class ListActivity : AppCompatActivity() {
         }
     }
 
+    private fun itemsChecked(){
+        listToolbarBotItems.text = ("$itemsCheckedVar / $itemsVar")
+    }
+
     private fun refreshList() {
         globalList = db.getItem(intentID)
         adapter = ListAdapter(this, globalList!!)
         rvItem.adapter = adapter
+        itemsChecked()
+
     }
 
     override fun onResume() {
@@ -444,6 +458,7 @@ class ListActivity : AppCompatActivity() {
             //val cardMenu = v.findViewById<ImageView>(R.id.cardItemMenu)
             val cardDelete = v.findViewById<ImageView>(R.id.cardItemDelete)
             val addItemBtn = v.findViewById<LinearLayout>(R.id.addItemButton)
+            var cardCheckBox = v.findViewById<CheckBox>(R.id.cardItemCheckBox)
 
         }
 
@@ -479,9 +494,12 @@ class ListActivity : AppCompatActivity() {
             fun strikeThroughFunc() {
                 if (list[position].isCompleted) {
                     holder.cardTitle.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                    holder.cardCheckBox.isChecked = true
                 } else {
                     holder.cardTitle.paintFlags = 0
+                    holder.cardCheckBox.isChecked = false
                 }
+
             }
 
             /*For button in recyclerview*/
@@ -507,11 +525,13 @@ class ListActivity : AppCompatActivity() {
                 if (activity.inEditMode) {
                     holder.cardSwap.visibility = View.VISIBLE
                     holder.cardDelete.visibility = View.VISIBLE
+                    holder.cardCheckBox.visibility = View.GONE
                     //holder.cardMenu.visibility = View.GONE
 
                     holder.cardTitle.setOnClickListener {
                         activity.updateItemFunc(list[position])
                     }
+
 
                     holder.cardSwap.setOnTouchListener { v, event ->
                         if (event.actionMasked == MotionEvent.ACTION_DOWN){
@@ -525,13 +545,26 @@ class ListActivity : AppCompatActivity() {
                 else {
                     holder.cardSwap.visibility = View.GONE
                     holder.cardDelete.visibility = View.GONE
+                    holder.cardCheckBox.visibility = View.VISIBLE
                     //holder.cardMenu.visibility = View.VISIBLE
 
                     holder.cardTitle.setOnClickListener {
                         list[position].isCompleted = !list[position].isCompleted
                         activity.db.updateItem(list[position])
 
+                        if (list[position].isCompleted) activity.itemsCheckedVar += 1 else activity.itemsCheckedVar -= 1
+
                         strikeThroughFunc()
+                        activity.itemsChecked()
+                    }
+                    holder.cardCheckBox.setOnClickListener {
+                        list[position].isCompleted = !list[position].isCompleted
+                        activity.db.updateItem(list[position])
+
+                        if (list[position].isCompleted) activity.itemsCheckedVar += 1 else activity.itemsCheckedVar -= 1
+
+                        strikeThroughFunc()
+                        activity.itemsChecked()
                     }
                 }
 

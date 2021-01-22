@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/listToolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="?android:actionBarSize"
         android:background="@color/colorGroupDeep0"
         android:paddingBottom="4dp">
         <TextView
@@ -32,7 +32,7 @@
 
         <ImageView
             android:id="@+id/listToolbarEdit"
-            android:layout_width="?actionBarSize"
+            android:layout_width="?android:actionBarSize"
             android:layout_height="match_parent"
             android:padding="10dp"
             android:src="@drawable/ic_baseline_edit_24"
@@ -58,7 +58,7 @@
 
         <ImageView
             android:id="@+id/listToolbarDone"
-            android:layout_width="?actionBarSize"
+            android:layout_width="?android:actionBarSize"
             android:layout_height="match_parent"
             android:padding="10dp"
             android:src="@drawable/ic_baseline_done_24"
@@ -80,20 +80,41 @@
     <RelativeLayout
         android:id="@+id/listToolbarBot"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="?android:actionBarSize"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:background="@color/colorGroupDeep0">
 
+        <TextView
+            android:id="@+id/listToolbarBotTVItemChecked"
+            android:layout_width="wrap_content"
+            android:layout_height="?actionBarSize"
+            android:padding="8dp"
+            android:layout_marginHorizontal="4dp"
+            android:text="Items Checked: "
+            android:textSize="18sp"
+            android:textColor="@color/colorTextDark"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/listToolbarBotItems"
+            android:layout_width="wrap_content"
+            android:layout_height="?actionBarSize"
+            android:text="0 / 0"
+            android:textSize="20sp"
+            android:textColor="@color/colorTextDark"
+            android:gravity="center_vertical"
+            android:layout_toEndOf="@id/listToolbarBotTVItemChecked"/>
+
         <ImageView
             android:id="@+id/listMore"
-            android:layout_width="?actionBarSize"
-            android:layout_height="?actionBarSize"
+            android:layout_width="?android:actionBarSize"
+            android:layout_height="?android:actionBarSize"
             android:src="@drawable/ic_more_vert"
             android:padding="8dp"
             android:layout_marginHorizontal="4dp"
             android:layout_alignParentEnd="true"
-            app:tint="@color/colorIcon"/>
+            app:tint="@color/colorIcon" />
     </RelativeLayout>
 
     <LinearLayout

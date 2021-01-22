@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/settingsToolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="?android:actionBarSize"
         android:layout_marginTop="1dp"
         android:layout_margin="1dp"
         android:background="@drawable/shape_rectangle_hollow"

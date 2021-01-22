@@ -217,6 +217,7 @@ class MainActivity : AppCompatActivity() {
             obj.type = list.type
             obj.group = list.group
             obj.itemsChecked = list.itemsChecked
+            obj.items = list.items
             obj.itemsList = list.itemsList
             obj.id = list.id
             if (n==1){      //Delete
@@ -231,10 +232,14 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "List Archived", Toast.LENGTH_SHORT).show()
             }
             else if(n==3){
+                obj.itemsChecked = list.items
+                db.updatePrimaryList(obj)
                 db.markItemList(list.id, true)
                 Toast.makeText(this, "All Checked", Toast.LENGTH_SHORT).show()
             }
             else if (n==4){
+                obj.itemsChecked = 0
+                db.updatePrimaryList(obj)
                 db.markItemList(list.id, false)
                 Toast.makeText(this, "All unchecked", Toast.LENGTH_SHORT).show()
             }

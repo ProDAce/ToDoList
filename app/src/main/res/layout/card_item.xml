@@ -23,6 +23,16 @@
                 android:src="@drawable/ic_test_swap"
                 android:visibility="visible"
                 app:tint="@color/colorIcon" />
+
+            <CheckBox
+                android:id="@+id/cardItemCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:visibility="gone"
+                app:tint="@color/colorIcon"
+                android:buttonTint="@color/colorIcon"/>
         </LinearLayout>
 
         <TextView

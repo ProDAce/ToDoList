@@ -14,6 +14,7 @@
         android:textColor="@color/colorTextDark"
         android:inputType="textCapSentences"
         android:gravity="center_vertical"
-        android:backgroundTint="@color/colorBackgroundTint"/>
+        android:backgroundTint="@color/colorBackgroundTint"
+        android:autofillHints="" />
 
 </RelativeLayout>
