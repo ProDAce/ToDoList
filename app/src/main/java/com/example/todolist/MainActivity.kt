@@ -13,8 +13,10 @@ import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -320,9 +322,13 @@ class MainActivity : AppCompatActivity() {
             holder.cardTitle.text = list[position].title
             holder.cardTitle.setOnClickListener {
                 val intent = Intent(activity, ListActivity::class.java)
+//                val opt: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, *arrayOf(holder.cardTitle))
+                val opt = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, holder.cardTitle,
+                    ViewCompat.getTransitionName(holder.cardTitle).toString()
+                )
                 intent.putExtra(INTENT_ID, list[position].id)
                 intent.putExtra(INTENT_CREATED, false)
-                activity.startActivity(intent)
+                activity.startActivity(intent, opt.toBundle())
             }
 
             holder.cardMenu.setOnClickListener {

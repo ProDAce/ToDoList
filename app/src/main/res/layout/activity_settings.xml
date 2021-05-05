@@ -12,17 +12,10 @@
         android:id="@+id/settingsToolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
-        android:layout_marginTop="1dp"
-        android:layout_margin="1dp"
-        android:background="@drawable/shape_rectangle_hollow"
+        android:background="@color/colorPrimary"
         android:layout_alignParentTop="true">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/shape_rectangle_solid"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_margin="2dp"/>
+
 
         <!--<ImageView
             android:id="@+id/settingsNavToggle"
@@ -36,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/stringSettings"
-            android:textSize="26sp"
+            android:textSize="20sp"
             android:textColor="@color/colorTextDark"
             android:gravity="center_vertical"
             android:paddingHorizontal="16dp"/>

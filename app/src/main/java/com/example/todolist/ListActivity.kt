@@ -29,7 +29,7 @@ class ListActivity : AppCompatActivity() {
     lateinit var changeColorGroup: ChangeColorGroup
 
     private var intentID: Long = -1
-    private var titleVar: String = ""
+    var titleVar: String = ""
     private var groupVar: Int = 0
     private var typeVar: Int = 1
     private var itemsVar: Int = 0

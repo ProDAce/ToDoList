@@ -25,7 +25,8 @@
             android:drawablePadding="10dp"
             android:paddingLeft="10dp"
             android:ellipsize="end"
-            android:layout_toStartOf="@id/cardPrimaryMenu"/>
+            android:layout_toStartOf="@id/cardPrimaryMenu"
+            android:transitionName="trnName"/>
 
         <!--<TextView
             android:id="@+id/cardPrimaryType"

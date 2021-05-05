@@ -28,7 +28,8 @@
             android:maxLines="1"
             android:background="@android:color/transparent"
             android:layout_toStartOf="@+id/listToolbarEdit"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:transitionName="trnName"/>
 
         <ImageView
             android:id="@+id/listToolbarEdit"
